@@ -5,7 +5,7 @@ class Hanoi():
     #Initializes state.
     def __init__(self, starting_disks):
         self._state = {} # state is implemented as a dictionary of 3 lists, one per peg
-        self._state["A"] = [(i) for i in range(int(starting_disks), 0, -1)] # creates the starting tower of disks on peg A
+        self._state["A"] = [(i) for i in range(starting_disks, 0, -1)] # creates the starting tower of disks on peg A
         self._state["B"] = []
         self._state["C"] = []
 
