@@ -70,19 +70,21 @@ class Automaton():
             new_sumline = self._lines[-1].export_sumline() # used the last added line to create a sumline
             new_line = new_sumline.export_line(self._rule) # uses the newly created sumline to produce the next line
             self._add_line(new_line)
-
             
 # main program, checks for valid command line arguments before starting
 try:
-    args = list(map(int, sys.argv[1:]))
-    if args[1] < 1:
-        print("The automation must last at least one generation.")
-    elif list(filter(lambda x: x < 0, args)):
-        print("All arguments to configure the automaton must be whole numbers.")
-    elif list(filter(lambda x: x > 1, args[2:])):
-        print("Arguments which configure the rule must be either 0 or 1.")
+    if len(sys.argv) != 7:
+        print("Wrong number of arguments - you need six (width, generations, and then four binary digits to specify the rule).")
     else:
-        Automaton(args).run()
+        args = list(map(int, sys.argv[1:]))
+        if args[1] < 1:
+            print("The automation must last at least one generation.")
+        elif list(filter(lambda x: x < 0, args)):
+            print("All arguments to configure the automaton must be whole numbers.")
+        elif list(filter(lambda x: x > 1, args[2:])):
+            print("Arguments which configure the rule must be either 0 or 1.")
+        else:
+            Automaton(args).run()
 except TypeError:
     print("All arguments to configure the automaton must be whole numbers.ME")
 except ValueError:

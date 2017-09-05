@@ -46,21 +46,15 @@ class Hanoi():
 
 # main program, checks for correct input
 try:
-    n_disks = int(sys.argv[1])
-    if n_disks < 1:
-        print("The number of disks must be a natural number.")
+    if len(sys.argv) != 2:
+        print("Wrong number of arguments - please input one natural number.")
     else:
-        Hanoi(n_disks).solve()
+        n_disks = int(sys.argv[1])
+        if n_disks < 1:
+            print("The number of disks must be a natural number.")
+        else:
+            Hanoi(n_disks).solve()
 except TypeError:
     print("The number of disks must be a natural number.")
 except ValueError:
     print("The number of disks must be a natural number.")
-
-
-
-
-        
-    
-        
-            
-              
