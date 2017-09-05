@@ -86,6 +86,6 @@ try:
         else:
             Automaton(args).run()
 except TypeError:
-    print("All arguments to configure the automaton must be whole numbers.ME")
+    print("All arguments to configure the automaton must be whole numbers.")
 except ValueError:
     print("All arguments to configure the automaton must be whole numbers.")    
